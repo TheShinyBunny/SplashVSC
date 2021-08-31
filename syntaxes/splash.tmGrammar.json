@@ -1,0 +1,74 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.splash",
+	"patterns":[{"include": "#root"}],
+	"repository": {
+		"root":{
+			"patterns": [{"include": "#keywords"},{"include": "#control"},{"include": "#modifiers"},{"include": "#types"},{"include": "#func_call"},{"include": "#string_double"},{"include": "#string_single"},{"include": "#number"},{"include": "#field_access"},{"include": "#comment"},{"include": "#block_comment"}]
+		},
+		"keywords":{
+			"match": "\\b(main|class|constructor|function)\\b",
+			"name":"keyword"
+		},
+		"control":{
+			"match": "\\b(if|while|var|repeat|for|else|return|this|switch|case|default|null|true|false|break|continue)\\b",
+			"name":"keyword.control"
+		},
+		"modifiers":{
+			"match": "\\b(abstract|final|native|operator|private|protected|static|readonly|iterator|get|set|indexer|accessor|assigner|invoker|bidir)\\b",
+			"name":"storage.modifier"
+		},
+		"types":{
+			"match": "\\b(string|int|boolean|float|void|object)\\b",
+			"name": "entity.name.type"
+		},
+		"func_call":{
+			"match": "([a-zA-Z_][a-zA-Z0-9_]*)\\(",
+			"captures": {
+				"1":{
+					"name":"support.function"
+				}
+			}
+		},
+		"string_double":{
+			"begin": "\"",
+			"end": "\"",
+			"name":"string",
+			"patterns": [
+				{"include": "#string_expr"}
+			]
+		},
+		"string_single":{
+			"begin": "'",
+			"end": "'",
+			"name":"string",
+			"patterns": [
+				{"include": "#string_expr"}
+			]
+		},
+		"number":{
+			"match": "-?\\d+(\\.\\d+)?",
+			"name":"constant.numeric"
+		},
+		"string_expr":{
+			"begin": "\\{",
+			"end": "\\}",
+			"name":"meta.embedded.expr",
+			"patterns": [{"include": "#root"}]
+		},
+		"field_access":{
+			"match": "\\.[a-zA-Z_][a-zA-Z0-9_]*",
+			"name":"entity.name"
+		},
+		"comment":{
+			"begin": "#",
+			"end": "\n",
+			"name":"comment.line"
+		},
+		"block_comment":{
+			"begin": "/\\*",
+			"end": "\\*/",
+			"name":"comment.block"
+		}
+	}
+}
