@@ -11,7 +11,7 @@
 			"name":"keyword"
 		},
 		"control":{
-			"match": "\\b(if|while|var|repeat|for|else|return|this|switch|case|default|null|true|false|break|continue)\\b",
+			"match": "\\b(if|while|var|repeat|for|else|return|this|switch|case|default|null|true|false|break|continue|extends)\\b",
 			"name":"keyword.control"
 		},
 		"modifiers":{
