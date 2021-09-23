@@ -11,7 +11,7 @@
 			"name":"keyword"
 		},
 		"control":{
-			"match": "\\b(if|while|var|repeat|for|else|return|this|switch|case|default|null|true|false|break|continue|extends)\\b",
+			"match": "\\b(if|while|var|repeat|for|else|return|this|switch|as|is|in|case|default|null|true|false|break|continue|extends)\\b",
 			"name":"keyword.control"
 		},
 		"modifiers":{
@@ -47,7 +47,7 @@
 			]
 		},
 		"number":{
-			"match": "-?\\d+(\\.\\d+)?",
+			"match": "\\b-?\\d+(\\.\\d+)?\\b",
 			"name":"constant.numeric"
 		},
 		"string_expr":{
